@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:venti/pages/home.dart';
-import 'package:venti/pages/profile.dart';
+import 'package:venti/presentation/pages/home.dart';
+import 'package:venti/presentation/pages/profile.dart';
 
 void main() {
   runApp(const MyApp());
