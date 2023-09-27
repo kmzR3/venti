@@ -1,25 +1,25 @@
 Project Directory Structure:
 Organize your project directory structure in a way that reflects the layers of Clean Architecture:
 
-plaintext
-Copy code
-lib/
-├── core/
-│   ├── usecases/
-│   ├── entities/
-│   ├── repositories/
-│   ├── errors/
-│   └── ...
-├── data/
-│   ├── datasources/
-│   ├── repositories/
-│   └── models/
-├── presentation/
-│   ├── pages/
-│   ├── widgets/
-│   └── ...
-├── app.dart
-└── main.dart
+
+lib/  
+├── core/  
+│   ├── usecases/  
+│   ├── entities/  
+│   ├── repositories/  
+│   ├── errors/  
+│   └── ...  
+├── data/  
+│   ├── datasources/  
+│   ├── repositories/  
+│   └── models/  
+├── presentation/  
+│   ├── pages/  
+│   ├── widgets/  
+│   └── ...  
+├── app.dart  
+└── main.dart  
+
 core/: This is where you define your application's business logic and use cases. It should be independent of external frameworks or libraries.
 data/: This layer deals with data retrieval and storage, including API calls and database operations.
 presentation/: This layer handles the user interface, widgets, and UI logic.
