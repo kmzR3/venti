@@ -13,7 +13,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        // centerTitle: true,
         title: const Text(
           'Venti App',
         ),
@@ -23,6 +23,14 @@ class _MyHomePageState extends State<MyHomePage> {
           fontSize: 30,
           fontWeight: FontWeight.bold,
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              // Add your search functionality here
+            },
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -51,7 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
       //   child: Column(
       //     mainAxisAlignment: MainAxisAlignment.center,
       //     children: <Widget>[
-      //       // LoginForm(),
       //       Text(
       //         'Venti App',
       //         style: TextStyle(fontSize: 40),
@@ -203,5 +210,3 @@ class _LoginFormState extends State<LoginForm> {
     );
   }
 }
-
-// create a
