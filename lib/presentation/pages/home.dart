@@ -41,8 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
             activeIcon: Icon(Icons.home), // <-- new,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+            icon: Icon(Icons.dangerous),
+            label: 'Dangerous',
             backgroundColor: Colors.deepPurple,
           ),
           BottomNavigationBarItem(
@@ -86,7 +86,7 @@ class _MainContentState extends State<MainContent> {
   Widget build(BuildContext context) {
     return GridView(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 1,
+        crossAxisCount: 2,
         mainAxisSpacing: 2,
         crossAxisSpacing: 10,
       ),
@@ -146,7 +146,7 @@ class _MainContentState extends State<MainContent> {
             ),
           ),
         ),
-        LoginForm()
+        // LoginForm()
       ],
     );
   }
