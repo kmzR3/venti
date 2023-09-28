@@ -26,7 +26,7 @@ This is where you define your application's business logic and use cases. It sho
 This layer deals with data retrieval and storage, including API calls and database operations.
 presentation/: This layer handles the user interface, widgets, and UI logic.
 Core Layer (Use Cases, Entities, Repositories):
-
+# Core 
 ## Entities: 
 Define the core data models or entities of your application. These should represent the fundamental building blocks of your app.
 Use Cases: Implement the business logic of your application in use cases. Use cases are classes that encapsulate specific functionalities, independent of the UI or data source.
