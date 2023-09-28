@@ -88,7 +88,7 @@ class _MainContentState extends State<MainContent> {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 2,
-        crossAxisSpacing: 10,
+        crossAxisSpacing: 2,
       ),
       padding: const EdgeInsets.all(2),
       children: const <Widget>[
