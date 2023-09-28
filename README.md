@@ -1,4 +1,4 @@
-Project Directory Structure:
+# Project Directory Structure:
 Organize your project directory structure in a way that reflects the layers of Clean Architecture:
 
 
@@ -20,12 +20,15 @@ lib/
 ├── app.dart  
 └── main.dart  
 
-core/: This is where you define your application's business logic and use cases. It should be independent of external frameworks or libraries.
-data/: This layer deals with data retrieval and storage, including API calls and database operations.
+## core/: 
+This is where you define your application's business logic and use cases. It should be independent of external frameworks or libraries.
+## data/: 
+This layer deals with data retrieval and storage, including API calls and database operations.
 presentation/: This layer handles the user interface, widgets, and UI logic.
 Core Layer (Use Cases, Entities, Repositories):
 
-Entities: Define the core data models or entities of your application. These should represent the fundamental building blocks of your app.
+## Entities: 
+Define the core data models or entities of your application. These should represent the fundamental building blocks of your app.
 Use Cases: Implement the business logic of your application in use cases. Use cases are classes that encapsulate specific functionalities, independent of the UI or data source.
 Repositories: Create interfaces or abstract classes for data access operations. Implement these interfaces in the data layer. The core layer interacts with data through these repositories, abstracting data source details.
 Data Layer (Data Sources, Repositories, Models):
