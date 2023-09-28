@@ -41,8 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
             activeIcon: Icon(Icons.home), // <-- new,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.dangerous),
-            label: 'Dangerous',
+            icon: Icon(Icons.add),
+            label: 'Create',
             backgroundColor: Colors.deepPurple,
           ),
           BottomNavigationBarItem(
