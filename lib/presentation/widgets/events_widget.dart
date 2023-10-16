@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:venti/core/entities/ticket.dart';
 import 'package:venti/data/models/sample_events.dart';
-import 'package:venti/presentation/pages/event_details_page.dart'; // Import the sample events
+import 'package:venti/presentation/pages/event_details_page.dart';
+import 'package:intl/intl.dart';
 
 class EventListWidget extends StatelessWidget {
   const EventListWidget({super.key});
@@ -17,13 +17,11 @@ class EventListWidget extends StatelessWidget {
         itemBuilder: (context, index) {
           final event = sampleEvents[index];
           return ListTile(
-            // Display the event name and date
             title: Text(event.name as String),
-
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(event.date.toString()),
+                Text(DateFormat('yyyy-MM-dd').format(event.date as DateTime)),
                 Text('Ticket Quantity: ${event.tickets?[0].quantity}'),
                 Text('Ticket Price: ${event.tickets?[0].price}'),
                 // Add other ticket details here as needed

@@ -1,8 +1,6 @@
-// display event details
-// Compare this snippet from lib/presentation/pages/event_details_page.dart:
 import 'package:flutter/material.dart';
-// import 'package:venti/data/models/sample_events.dart';
 import '../../core/entities/event.dart'; // Import the sample events
+import 'package:intl/intl.dart';
 
 class EventDetailsPage extends StatelessWidget {
   final Event event;
@@ -19,7 +17,7 @@ class EventDetailsPage extends StatelessWidget {
           Text(event.location as String),
           Text(event.venue as String),
           Text(event.description as String),
-          Text(event.date.toString()),
+          Text(DateFormat('yyyy-MM-dd').format(event.date as DateTime)),
           Text('Ticket Quantity: ${event.tickets?[0].quantity}'),
           Text('Ticket Price: ${event.tickets?[0].price}'),
           // Add other ticket details here as needed
