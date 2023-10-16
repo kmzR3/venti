@@ -19,6 +19,10 @@ class EventDetailsPage extends StatelessWidget {
           Text(event.location as String),
           Text(event.venue as String),
           Text(event.description as String),
+          Text(event.date.toString()),
+          Text('Ticket Quantity: ${event.tickets?[0].quantity}'),
+          Text('Ticket Price: ${event.tickets?[0].price}'),
+          // Add other ticket details here as needed
         ],
       ),
     );
