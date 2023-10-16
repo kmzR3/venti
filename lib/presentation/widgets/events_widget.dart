@@ -22,8 +22,8 @@ class EventListWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(DateFormat('yyyy-MM-dd').format(event.date as DateTime)),
-                Text('Ticket Quantity: ${event.tickets?[0].quantity}'),
-                Text('Ticket Price: ${event.tickets?[0].price}'),
+                Text('Ticket Quantity: ${event.tickets?[index].quantity}'),
+                Text('Ticket Price: ${event.tickets?[index].price}'),
                 // Add other ticket details here as needed
               ],
             ),
