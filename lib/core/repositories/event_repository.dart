@@ -12,5 +12,4 @@ abstract class EventRepository {
 
   /// Remove an event from the user's list of favorites.
   Future<void> removeFromFavorites({required String eventId});
-
 }
