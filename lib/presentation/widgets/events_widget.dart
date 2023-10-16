@@ -18,7 +18,7 @@ class EventListWidget extends StatelessWidget {
           return ListTile(
             // Display the event name and date
             title: Text(event.name as String),
-            subtitle: Text(event.date as String),
+            subtitle: Text(event.date.toString()),
             onTap: () {
               // Add your navigation logic here
               // For example, you can use Navigator.push() to navigate to a new page

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:venti/presentation/widgets/events_widget.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -54,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: const MainContent(),
+      body: const EventListWidget(),
       // body: const Center(
       //   child: Column(
       //     mainAxisAlignment: MainAxisAlignment.center,
