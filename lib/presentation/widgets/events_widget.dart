@@ -9,9 +9,6 @@ class EventListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sample Events'),
-      ),
       body: ListView.builder(
         itemCount: sampleEvents.length,
         itemBuilder: (context, index) {
