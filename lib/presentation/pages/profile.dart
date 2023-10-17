@@ -57,7 +57,7 @@ class _MyProfileState extends State<MyProfile> {
           } else if (index == 1) {
             // Navigator.pushNamed(context, '/create');
           } else if (index == 2) {
-            Navigator.pushNamed(context, '/profile');
+            Navigator.pushNamed(context, '/login');
           }
         },
       ),
