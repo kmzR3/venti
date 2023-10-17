@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MyLogin extends StatefulWidget {
-  const MyLogin({Key? key}) : super(key: key);
+class MyForgot extends StatefulWidget {
+  const MyForgot({Key? key}) : super(key: key);
 
   @override
-  _MyLoginState createState() => _MyLoginState();
+  _MyForgotState createState() => _MyForgotState();
 }
 
-class _MyLoginState extends State<MyLogin> {
+class _MyForgotState extends State<MyForgot> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +23,7 @@ class _MyLoginState extends State<MyLogin> {
             Container(
               padding: const EdgeInsets.only(left: 35, top: 130),
               child: const Text(
-                'Welcome\nBack',
+                'Reset\nPassword',
                 style: TextStyle(color: Colors.white, fontSize: 33),
               ),
             ),
@@ -48,20 +48,20 @@ class _MyLoginState extends State<MyLogin> {
                                   borderRadius: BorderRadius.circular(10),
                                 )),
                           ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          TextField(
-                            style: const TextStyle(),
-                            obscureText: true,
-                            decoration: InputDecoration(
-                                fillColor: Colors.grey.shade100,
-                                filled: true,
-                                hintText: "Password",
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )),
-                          ),
+                          // const SizedBox(
+                          //   height: 30,
+                          // ),
+                          // TextField(
+                          //   style: const TextStyle(),
+                          //   obscureText: true,
+                          //   decoration: InputDecoration(
+                          //       fillColor: Colors.grey.shade100,
+                          //       filled: true,
+                          //       hintText: "Password",
+                          //       border: OutlineInputBorder(
+                          //         borderRadius: BorderRadius.circular(10),
+                          //       )),
+                          // ),
                           const SizedBox(
                             height: 40,
                           ),
@@ -69,7 +69,7 @@ class _MyLoginState extends State<MyLogin> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const Text(
-                                'Sign in',
+                                'Forgot Password',
                                 style: TextStyle(
                                     fontSize: 27, fontWeight: FontWeight.w700),
                               ),
@@ -86,7 +86,7 @@ class _MyLoginState extends State<MyLogin> {
                             ],
                           ),
                           const SizedBox(
-                            height: 40,
+                            height: 10,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,18 +105,16 @@ class _MyLoginState extends State<MyLogin> {
                                       fontSize: 18),
                                 ),
                               ),
-                              TextButton(
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, '/forgot');
-                                  },
-                                  child: const Text(
-                                    'Forgot Password',
-                                    style: TextStyle(
-                                      decoration: TextDecoration.underline,
-                                      color: Color(0xff4c505b),
-                                      fontSize: 18,
-                                    ),
-                                  )),
+                              // TextButton(
+                              //     onPressed: () {},
+                              //     child: const Text(
+                              //       'Forgot Password',
+                              //       style: TextStyle(
+                              //         decoration: TextDecoration.underline,
+                              //         color: Color(0xff4c505b),
+                              //         fontSize: 18,
+                              //       ),
+                              //     )),
                             ],
                           )
                         ],

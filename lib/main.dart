@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:venti/presentation/pages/forgot.dart';
 import 'package:venti/presentation/pages/home.dart';
 import 'package:venti/presentation/pages/login.dart';
 import 'package:venti/presentation/pages/profile.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
           '/profile': (context) => const MyProfile(),
           '/login': (context) => const MyLogin(),
           '/register': (context) => const MyRegister(),
+          '/forgot': (context) => const MyForgot(),
         });
   }
 }
