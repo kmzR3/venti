@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "320273808306",
+    "project_id": "venti-f8985",
+    "storage_bucket": "venti-f8985.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320273808306:android:d20266a00e1bbbc59382ab",
+        "android_client_info": {
+          "package_name": "com.example.venti"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYuL7dSkLHdK7Bx9yawA2Xz-RS3W7UyBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

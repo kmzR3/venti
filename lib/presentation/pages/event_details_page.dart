@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:venti/presentation/widgets/bottom_nav.dart';
 import '../../core/entities/event.dart'; // Import the sample events
 import 'package:intl/intl.dart';
 
