@@ -7,33 +7,27 @@ class Auth {
 
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
-  signOut() {}
+  Future<void> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    await _firebaseAuth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+  }
 
-  signInWithEmailAndPassword(
-      {required String email, required String password}) {}
+  Future<void> createUserWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    await _firebaseAuth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+  }
 
-  createUserWithEmailAndPassword({required String email, required String password}) {}
-}
-
-// Sign up with email and password
-Future<void> signUpWithEmailAndPassword(
-  String email, String password) async {
-  await FirebaseAuth.instance.createUserWithEmailAndPassword(
-    email: email,
-    password: password,
-  );
-}
-
-// Sign in with email and password
-Future<void> createUserWithEmailAndPassword(
-    String email, String password) async {
-  await FirebaseAuth.instance.createUserWithEmailAndPassword(
-    email: email,
-    password: password,
-  );
-}
-
-// Sign out
-Future<void> signOut() async {
-  await FirebaseAuth.instance.signOut();
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
+  }
 }
