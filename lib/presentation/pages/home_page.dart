@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:venti/data/models/sample_events.dart';
+import 'package:venti/presentation/widgets/events_widget.dart';
 import 'package:venti/services/auth.dart';
 
 class HomePage extends StatelessWidget {
@@ -38,6 +40,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              // const EventListWidget(),
               _userUid(),
               _signOutButton(),
             ],
