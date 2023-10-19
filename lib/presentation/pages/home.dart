@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:venti/presentation/widgets/events_widget.dart';
+import 'package:firebase_database/firebase_database.dart';
+
+DatabaseReference ref = FirebaseDatabase.instance.ref();
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -64,6 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
           }
         },
       ),
+      // read from database
+
       body: const EventListWidget(),
       // body: Container(
       //   height: double.infinity,
