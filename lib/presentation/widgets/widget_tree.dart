@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:venti/presentation/pages/home_page.dart';
+import 'package:venti/presentation/pages/home.dart';
+import 'package:venti/presentation/pages/profile_page.dart';
 import 'package:venti/presentation/pages/login_register_page.dart';
 import 'package:venti/services/auth.dart';
 
@@ -17,7 +18,7 @@ class _WidgetTreeState extends State<WidgetTree> {
       stream: Auth().authStateChanges,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return  HomePage();
+          return const MyHomePage();
         } else {
           return const LoginPage();
         }

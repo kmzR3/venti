@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:venti/presentation/pages/forgot.dart';
-import 'package:venti/presentation/pages/home.dart';
-import 'package:venti/presentation/pages/home_page.dart';
-import 'package:venti/presentation/pages/login.dart';
-import 'package:venti/presentation/pages/profile.dart';
-import 'package:venti/presentation/pages/register.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:venti/presentation/pages/home.dart';
+import 'package:venti/presentation/pages/profile_page.dart';
 import 'package:venti/presentation/widgets/widget_tree.dart';
 import 'firebase_options.dart';
 
@@ -23,21 +19,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Venti',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const WidgetTree(),
-      // initialRoute: '/',
-      // routes: {
-      //   '/': (context) => HomePage(),
-      //   '/profile': (context) => const MyProfile(),
-      //   '/login': (context) => const MyLogin(),
-      //   '/register': (context) => const MyRegister(),
-      //   '/forgot': (context) => const MyForgot(),
-      // }
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Venti',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const WidgetTree(),
+        // initialRoute: '/',
+        routes: {
+          // '/': (context) => const MyHomePage(),
+          '/profile': (context) => ProfilePage(),
+          // '/login': (context) => const MyLogin(),
+          // '/register': (context) => const MyRegister(),
+          // '/forgot': (context) => const MyForgot(),
+        });
   }
 }
