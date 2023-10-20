@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:venti/presentation/pages/home.dart';
 import 'package:venti/presentation/pages/profile_page.dart';
 import 'package:venti/presentation/widgets/widget_tree.dart';
 import 'firebase_options.dart';

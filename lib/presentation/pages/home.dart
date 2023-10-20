@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:venti/presentation/widgets/events_widget.dart';
+import 'package:venti/data/fetch_data.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 DatabaseReference ref = FirebaseDatabase.instance.ref();
@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       // read from database
 
-      body: const EventListWidget(),
+      body: const FetchData(),
       // body: Container(
       //   height: double.infinity,
       //   width: double.infinity,

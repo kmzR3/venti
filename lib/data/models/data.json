@@ -1,10 +1,30 @@
 {
-	"ctRoot": [
+	"Events": [
 		{
 			"date": "2023-10-15T14:00:00Z",
-			"description": "Sample Event Description",
+			"description": "Sample Event 1 Description",
 			"id": "1",
-			"location": "Sample Location",
+			"location": "Sample Location 1",
+			"name": "Sample Event 1",
+			"tickets": [
+				{
+					"price": 20,
+					"quantity": 100,
+					"type": "General"
+				},
+				{
+					"price": 50,
+					"quantity": 50,
+					"type": "VIP"
+				}
+			],
+			"venue": "Sample Venue"
+		},
+		{
+			"date": "2023-10-15T14:00:00Z",
+			"description": "Sample Event 2 Description",
+			"id": "2",
+			"location": "Sample Location 2",
 			"name": "Sample Event 2",
 			"tickets": [
 				{
@@ -22,170 +42,10 @@
 		},
 		{
 			"date": "2023-10-15T14:00:00Z",
-			"description": "Sample Event Description",
-			"id": "1",
-			"location": "Sample Location",
-			"name": "Sample Event 2",
-			"tickets": [
-				{
-					"price": 20,
-					"quantity": 100,
-					"type": "General"
-				},
-				{
-					"price": 50,
-					"quantity": 50,
-					"type": "VIP"
-				}
-			],
-			"venue": "Sample Venue"
-		},
-		{
-			"date": "2023-10-15T14:00:00Z",
-			"description": "Sample Event Description",
-			"id": "1",
-			"location": "Sample Location",
-			"name": "Sample Event 2",
-			"tickets": [
-				{
-					"price": 20,
-					"quantity": 100,
-					"type": "General"
-				},
-				{
-					"price": 50,
-					"quantity": 50,
-					"type": "VIP"
-				}
-			],
-			"venue": "Sample Venue"
-		},
-		{
-			"date": "2023-10-15T14:00:00Z",
-			"description": "Sample Event Description",
-			"id": "1",
-			"location": "Sample Location",
-			"name": "Sample Event 2",
-			"tickets": [
-				{
-					"price": 20,
-					"quantity": 100,
-					"type": "General"
-				},
-				{
-					"price": 50,
-					"quantity": 50,
-					"type": "VIP"
-				}
-			],
-			"venue": "Sample Venue"
-		},
-		{
-			"date": "2023-10-15T14:00:00Z",
-			"description": "Sample Event Description",
-			"id": "1",
-			"location": "Sample Location",
-			"name": "Sample Event 2",
-			"tickets": [
-				{
-					"price": 20,
-					"quantity": 100,
-					"type": "General"
-				},
-				{
-					"price": 50,
-					"quantity": 50,
-					"type": "VIP"
-				}
-			],
-			"venue": "Sample Venue"
-		},
-		{
-			"date": "2023-10-15T14:00:00Z",
-			"description": "Sample Event Description",
-			"id": "1",
-			"location": "Sample Location",
-			"name": "Sample Event 2",
-			"tickets": [
-				{
-					"price": 20,
-					"quantity": 100,
-					"type": "General"
-				},
-				{
-					"price": 50,
-					"quantity": 50,
-					"type": "VIP"
-				}
-			],
-			"venue": "Sample Venue"
-		},
-		{
-			"date": "2023-10-15T14:00:00Z",
-			"description": "Sample Event Description",
-			"id": "1",
-			"location": "Sample Location",
-			"name": "Sample Event 2",
-			"tickets": [
-				{
-					"price": 20,
-					"quantity": 100,
-					"type": "General"
-				},
-				{
-					"price": 50,
-					"quantity": 50,
-					"type": "VIP"
-				}
-			],
-			"venue": "Sample Venue"
-		},
-		{
-			"date": "2023-10-15T14:00:00Z",
-			"description": "Sample Event Description",
-			"id": "1",
-			"location": "Sample Location",
-			"name": "Sample Event 2",
-			"tickets": [
-				{
-					"price": 20,
-					"quantity": 100,
-					"type": "General"
-				},
-				{
-					"price": 50,
-					"quantity": 50,
-					"type": "VIP"
-				}
-			],
-			"venue": "Sample Venue"
-		},
-		{
-			"date": "2023-10-15T14:00:00Z",
-			"description": "Sample Event Description",
-			"id": "1",
-			"location": "Sample Location",
-			"name": "Sample Event 2",
-			"tickets": [
-				{
-					"price": 20,
-					"quantity": 100,
-					"type": "General"
-				},
-				{
-					"price": 50,
-					"quantity": 50,
-					"type": "VIP"
-				}
-			],
-			"venue": "Sample Venue"
-		},
-		{
-			"date": "2023-10-15T14:00:00Z",
-			"description": "Sample Event Description",
-			"id": "1",
-			"location": "Sample Location",
-			"name": "Sample Event 2",
+			"description": "Sample Event  3 Description",
+			"id": "3",
+			"location": "Sample Location 3",
+			"name": "Sample Event 3",
 			"tickets": [
 				{
 					"price": 20,

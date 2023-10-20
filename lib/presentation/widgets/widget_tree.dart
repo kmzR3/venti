@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:venti/presentation/pages/home.dart';
-import 'package:venti/presentation/pages/profile_page.dart';
 import 'package:venti/presentation/pages/login_register_page.dart';
 import 'package:venti/services/auth.dart';
 
