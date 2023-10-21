@@ -76,18 +76,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // read from database
 
       body: const GetData(),
-      // body: Container(
-      //   height: double.infinity,
-      //   width: double.infinity,
-      //   padding: const EdgeInsets.all(20),
-      //   child: const Column(
-      //     crossAxisAlignment: CrossAxisAlignment.center,
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: <Widget>[
-      //       EventListWidget(),
-      //     ],
-      //   ),
-      // ),
     );
   }
 }
