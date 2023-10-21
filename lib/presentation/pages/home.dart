@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:venti/data/fetch_data.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:venti/data/firestore.dart';
 
 DatabaseReference ref = FirebaseDatabase.instance.ref();
 
@@ -16,12 +17,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.menu),
+        // leading: const Icon(Icons.menu),
         // centerTitle: true,
         title: const Text(
           'Venti App',
         ),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         toolbarTextStyle: const TextStyle(
           color: Colors.white,
           fontSize: 30,
@@ -43,6 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Home',
             backgroundColor: Colors.deepPurple,
             activeIcon: Icon(Icons.home), // <-- new,
+            // disable icon
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add),
@@ -59,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         onTap: (index) {
           if (index == 0) {
-            Navigator.pushNamed(context, '/');
+            // Navigator.pushNamed(context, '/');
           } else if (index == 1) {
             // Navigator.pushNamed(context, '/create');
           } else if (index == 2) {
@@ -69,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       // read from database
 
-      body: const FetchData(),
+      body: const GetData(),
       // body: Container(
       //   height: double.infinity,
       //   width: double.infinity,
