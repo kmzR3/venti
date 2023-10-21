@@ -37,8 +37,6 @@ class _GetDataState extends State<GetData> {
                 document.data()! as Map<String, dynamic>;
             return ListTile(
               // leading: const Icon(Icons.event),
-              // loop over the data and display it
-              
               title: Text(data['title']),
               subtitle: Text(data['description']),
               trailing: Text(data['date'].toString()),
