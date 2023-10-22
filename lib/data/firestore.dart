@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:venti/presentation/pages/event_details.dart';
 // import 'package:venti/core/entities/event.dart';
 
 class GetData extends StatefulWidget {
@@ -41,7 +42,18 @@ class _GetDataState extends State<GetData> {
               subtitle: Text(data['description']),
               trailing: Text(data['date'].toString()),
               onTap: () {
-                Text(data['title']);
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => EventDetailPage(
+                      title: data['title'],
+                      description: data['description'],
+                      date: data['date'],
+                      venue: data['venue'],
+                      location: data[
+                          'location'], // Convert Firestore timestamp to DateTime
+                    ),
+                  ),
+                );
               },
             );
           }).toList(),

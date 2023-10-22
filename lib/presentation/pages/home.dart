@@ -19,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // leading: const Icon(Icons.menu),
         // centerTitle: true,
         title: const Text(
-          'Venti App',
+          'Venti',
         ),
         // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         toolbarTextStyle: const TextStyle(
