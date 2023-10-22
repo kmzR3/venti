@@ -41,40 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: const Icon(Icons.person))
         ],
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: const <BottomNavigationBarItem>[
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home),
-      //       label: 'Home',
-      //       backgroundColor: Colors.deepPurple,
-      //       activeIcon: Icon(Icons.home), // <-- new,
-      //       // disable icon
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.add),
-      //       label: 'Create',
-      //       backgroundColor: Colors.deepPurple,
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.person),
-      //       label: 'Profile',
-      //       backgroundColor: Colors.deepPurple,
-      //       //
-      //       // Navigator.pop(context);
-      //     ),
-      //   ],
-      //   onTap: (index) {
-      //     if (index == 0) {
-      //       // Navigator.pushNamed(context, '/');
-      //     } else if (index == 1) {
-      //       // Navigator.pushNamed(context, '/create');
-      //     } else if (index == 2) {
-      //       Navigator.pushNamed(context, '/profile');
-      //     }
-      //   },
-      // ),
-      // read from database
-
       body: const GetData(),
     );
   }
