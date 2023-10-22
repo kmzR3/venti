@@ -49,8 +49,9 @@ class _GetDataState extends State<GetData> {
                       description: data['description'],
                       date: data['date'],
                       venue: data['venue'],
-                      location: data[
-                          'location'], // Convert Firestore timestamp to DateTime
+                      location: data['location'],
+                      tickets: data[
+                          'tickets'], // Convert Firestore timestamp to DateTime
                     ),
                   ),
                 );

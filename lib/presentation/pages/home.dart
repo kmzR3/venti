@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.search),
+            icon: const Icon(Icons.favorite_outline),
             onPressed: () {
               // Add your search functionality here
             },

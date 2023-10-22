@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:venti/services/auth.dart';
 
 class EventDetailPage extends StatefulWidget {
   final String title;
@@ -6,6 +8,7 @@ class EventDetailPage extends StatefulWidget {
   final String date;
   final String venue;
   final String location;
+  final Map tickets;
 
   const EventDetailPage(
       {Key? key,
@@ -13,7 +16,8 @@ class EventDetailPage extends StatefulWidget {
       required this.description,
       required this.date,
       required this.venue,
-      required this.location})
+      required this.location,
+      required this.tickets})
       : super(key: key);
 
   @override
@@ -22,7 +26,7 @@ class EventDetailPage extends StatefulWidget {
 
 class _EventDetailPageState extends State<EventDetailPage> {
   bool isFavorite = false;
-
+  final User? user = Auth().currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,9 +36,7 @@ class _EventDetailPageState extends State<EventDetailPage> {
           IconButton(
             icon: Icon(
               isFavorite ? Icons.favorite : Icons.favorite_border,
-              color: isFavorite
-                  ? Colors.red
-                  : null, // Change the color when it's a favorite
+              color: isFavorite ? Colors.red : null,
             ),
             onPressed: () {
               setState(() {
@@ -53,6 +55,7 @@ class _EventDetailPageState extends State<EventDetailPage> {
             Text('Location: ${widget.location}'),
             Text('Venue: ${widget.venue}'),
             Text('Date: ${widget.date}'),
+            Text('Tickets: ${widget.tickets ?? 'No tickets available'}'),
             const SizedBox(height: 15),
             Align(
               alignment: Alignment.topRight,
