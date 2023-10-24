@@ -44,15 +44,16 @@ class _GetDataState extends State<GetData> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => EventDetailPage(
-                      title: data['title'],
-                      id: data['id'],
-                      description: data['description'],
-                      date: data['date'],
-                      venue: data['venue'],
-                      location: data['location'],
-                      tickets: data[
-                          'tickets'], // Convert Firestore timestamp to DateTime
-                    ),
+                        title: data['title'],
+                        id: data['id'],
+                        description: data['description'],
+                        date: data['date'],
+                        venue: data['venue'],
+                        location: data['location'],
+                        tickets: data['tickets'],
+                        img: data[
+                            'img'] // Convert Firestore timestamp to DateTime
+                        ),
                   ),
                 );
               },

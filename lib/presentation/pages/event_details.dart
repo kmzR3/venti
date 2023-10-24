@@ -10,6 +10,7 @@ class EventDetailPage extends StatefulWidget {
   final String location;
   final Map tickets;
   final String id;
+  final String? img;
 
   const EventDetailPage(
       {Key? key,
@@ -19,6 +20,7 @@ class EventDetailPage extends StatefulWidget {
       required this.venue,
       required this.location,
       required this.tickets,
+      required this.img,
       required this.id})
       : super(key: key);
 
@@ -101,6 +103,12 @@ class _EventDetailPageState extends State<EventDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Container(
+              // height: 200,
+              // width: 200,
+
+              child: Image.network('${widget.img}'),
+            ),
             Text('Description: ${widget.description}'),
             Text('Location: ${widget.location}'),
             Text('Venue: ${widget.venue}'),
