@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:venti/presentation/pages/event_details.dart';
-// import 'package:venti/core/entities/event.dart';
 
 class GetData extends StatefulWidget {
   const GetData({super.key});
@@ -14,6 +12,7 @@ class GetData extends StatefulWidget {
 class _GetDataState extends State<GetData> {
   final Stream<QuerySnapshot> _eventsStream =
       FirebaseFirestore.instance.collection('events').snapshots();
+  final eventId = FirebaseFirestore.instance.collection('events').id;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +45,7 @@ class _GetDataState extends State<GetData> {
                   MaterialPageRoute(
                     builder: (context) => EventDetailPage(
                       title: data['title'],
+                      id: data['id'],
                       description: data['description'],
                       date: data['date'],
                       venue: data['venue'],

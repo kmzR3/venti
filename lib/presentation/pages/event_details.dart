@@ -1,6 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:venti/services/auth.dart';
 
 class EventDetailPage extends StatefulWidget {
   final String title;
@@ -9,6 +9,7 @@ class EventDetailPage extends StatefulWidget {
   final String venue;
   final String location;
   final Map tickets;
+  final String id;
 
   const EventDetailPage(
       {Key? key,
@@ -17,7 +18,8 @@ class EventDetailPage extends StatefulWidget {
       required this.date,
       required this.venue,
       required this.location,
-      required this.tickets})
+      required this.tickets,
+      required this.id})
       : super(key: key);
 
   @override
@@ -26,7 +28,57 @@ class EventDetailPage extends StatefulWidget {
 
 class _EventDetailPageState extends State<EventDetailPage> {
   bool isFavorite = false;
-  final User? user = Auth().currentUser;
+
+  @override
+  void initState() {
+    super.initState();
+    // Check if the event is already in favorites when the page loads
+    checkFavoriteStatus();
+  }
+
+  Future<void> checkFavoriteStatus() async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      String uid = user.uid;
+      String eventId = widget.id;
+      final userFavoritesRef = FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('favorites');
+      DocumentSnapshot snapshot = await userFavoritesRef.doc(eventId).get();
+      setState(() {
+        isFavorite = snapshot.exists;
+      });
+    }
+  }
+
+  Future<void> favoriteEvent() async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      String uid = user.uid;
+      String eventId = widget.id;
+      final userFavoritesRef = FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('favorites');
+      DocumentSnapshot snapshot = await userFavoritesRef.doc(eventId).get();
+
+      if (snapshot.exists) {
+        // Event is already a favorite, remove it from favorites
+        userFavoritesRef.doc(eventId).delete();
+      } else {
+        // Event is not a favorite, add it to favorites
+        userFavoritesRef.doc(eventId).set({'favorite': true});
+      }
+
+      setState(() {
+        isFavorite = !isFavorite; // Toggle the favorite state
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +91,7 @@ class _EventDetailPageState extends State<EventDetailPage> {
               color: isFavorite ? Colors.red : null,
             ),
             onPressed: () {
-              setState(() {
-                isFavorite = !isFavorite; // Toggle the favorite state
-              });
+              favoriteEvent();
             },
           ),
         ],
