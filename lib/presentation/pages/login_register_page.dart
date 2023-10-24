@@ -14,6 +14,12 @@ class _LoginPageState extends State<LoginPage> {
   bool isLogin = true;
   final TextEditingController _controllerEmail = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
+  void _showSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(message),
+      backgroundColor: Colors.green,
+    ));
+  }
 
   Future<void> signInWIthEmailAndPassword() async {
     try {
@@ -21,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
         email: _controllerEmail.text,
         password: _controllerPassword.text,
       );
+      _showSnackBar('Signed in successfully');
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessage = e.message;
@@ -34,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
         email: _controllerEmail.text,
         password: _controllerPassword.text,
       );
+      _showSnackBar('Account created successfully');
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessage = e.message;

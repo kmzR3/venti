@@ -8,7 +8,7 @@ class EventDetailPage extends StatefulWidget {
   final String date;
   final String venue;
   final String location;
-  final Map tickets;
+  final Map<String, dynamic> tickets;
   final String id;
   final String? img;
 
@@ -36,6 +36,14 @@ class _EventDetailPageState extends State<EventDetailPage> {
     super.initState();
     // Check if the event is already in favorites when the page loads
     checkFavoriteStatus();
+  }
+
+  void _showSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(message),
+      backgroundColor:
+          Colors.green, // Customize the SnackBar's background color
+    ));
   }
 
   Future<void> checkFavoriteStatus() async {
@@ -70,9 +78,11 @@ class _EventDetailPageState extends State<EventDetailPage> {
       if (snapshot.exists) {
         // Event is already a favorite, remove it from favorites
         userFavoritesRef.doc(eventId).delete();
+        _showSnackBar('Event removed from favorites');
       } else {
         // Event is not a favorite, add it to favorites
         userFavoritesRef.doc(eventId).set({'favorite': true});
+        _showSnackBar('Event added to favorites');
       }
 
       setState(() {
@@ -103,17 +113,16 @@ class _EventDetailPageState extends State<EventDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              // height: 200,
-              // width: 200,
-
-              child: Image.network('${widget.img}'),
+            Image.network('${widget.img}'),
+            const SizedBox(
+              height: 5,
             ),
             Text('Description: ${widget.description}'),
             Text('Location: ${widget.location}'),
             Text('Venue: ${widget.venue}'),
             Text('Date: ${widget.date}'),
-            Text('Tickets: ${widget.tickets ?? 'No tickets available'}'),
+            Text(
+                'Tickets: ${widget.tickets.isEmpty ? 'No tickets available' : widget.tickets.values.map((value) => value.toString().replaceAll(RegExp(r'{|}'), '')).join(', ')}'),
             const SizedBox(height: 15),
             Align(
               alignment: Alignment.topRight,
