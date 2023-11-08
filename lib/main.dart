@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:venti/presentation/pages/favorite_events.dart';
 import 'package:venti/presentation/pages/profile_page.dart';
 import 'package:venti/presentation/widgets/widget_tree.dart';
 import 'firebase_options.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         routes: {
           // '/': (context) => const MyHomePage(),
           '/profile': (context) => const ProfilePage(),
-          // '/login': (context) => const MyLogin(),
+          '/favorite': (context) => const FavoriteEvents(),
           // '/register': (context) => const MyRegister(),
           // '/forgot': (context) => const MyForgot(),
         });
