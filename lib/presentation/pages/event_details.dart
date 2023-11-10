@@ -150,15 +150,6 @@ class _EventDetailPageState extends State<EventDetailPage> {
               toggleFavorite();
             },
           ),
-          IconButton(
-            icon: Icon(
-              isBooked ? Icons.bookmark : Icons.bookmark_border,
-              color: isBooked ? Colors.blue : null,
-            ),
-            onPressed: () {
-              toggleBook();
-            },
-          ),
         ],
       ),
       body: Padding(
