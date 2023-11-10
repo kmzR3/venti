@@ -3,15 +3,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:venti/presentation/pages/event_details.dart';
 
-class FavoriteEvents extends StatefulWidget {
-  const FavoriteEvents({Key? key}) : super(key: key);
+class BookedEvents extends StatefulWidget {
+  const BookedEvents({Key? key}) : super(key: key);
 
   @override
-  State<FavoriteEvents> createState() => _FavoriteEventsState();
+  State<BookedEvents> createState() => _BookedEventsState();
 }
 
-class _FavoriteEventsState extends State<FavoriteEvents> {
-  Stream<QuerySnapshot> getUserFavoriteEvents() async* {
+class _BookedEventsState extends State<BookedEvents> {
+  Stream<QuerySnapshot> getUserBookedEvents() async* {
     final User? user = FirebaseAuth.instance.currentUser;
 
     if (user != null) {
@@ -20,15 +20,15 @@ class _FavoriteEventsState extends State<FavoriteEvents> {
       var querySnapshot = await FirebaseFirestore.instance
           .collection('users')
           .doc(uid)
-          .collection('favorites')
+          .collection('bookings')
           .get();
 
-      var favoriteIds = querySnapshot.docs.map((doc) => doc.id).toList();
+      var bookedEventIds = querySnapshot.docs.map((doc) => doc.id).toList();
 
-      if (favoriteIds.isNotEmpty) {
+      if (bookedEventIds.isNotEmpty) {
         yield* FirebaseFirestore.instance
             .collection("events")
-            .where("id", whereIn: favoriteIds)
+            .where("id", whereIn: bookedEventIds)
             .snapshots();
       }
     }
@@ -38,10 +38,10 @@ class _FavoriteEventsState extends State<FavoriteEvents> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Favorite Events'),
+        title: const Text('Booked Events'),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: getUserFavoriteEvents(),
+        stream: getUserBookedEvents(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
             return const Text('Something went wrong');
@@ -52,16 +52,16 @@ class _FavoriteEventsState extends State<FavoriteEvents> {
           }
 
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return const Text("No favorite events");
+            return const Text("No booked events");
           }
 
-          final List<String> favoriteEventIds =
+          final List<String> bookedEventIds =
               snapshot.data!.docs.map((doc) => doc.id).toList();
 
           return StreamBuilder<QuerySnapshot>(
             stream: FirebaseFirestore.instance
                 .collection('events')
-                .where(FieldPath.documentId, whereIn: favoriteEventIds)
+                .where(FieldPath.documentId, whereIn: bookedEventIds)
                 .snapshots(),
             builder: (BuildContext context,
                 AsyncSnapshot<QuerySnapshot> eventSnapshot) {
@@ -74,7 +74,7 @@ class _FavoriteEventsState extends State<FavoriteEvents> {
               }
 
               if (!eventSnapshot.hasData || eventSnapshot.data!.docs.isEmpty) {
-                return const Text("No favorite events");
+                return const Text("No booked events");
               }
 
               return ListView(

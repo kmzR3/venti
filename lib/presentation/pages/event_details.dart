@@ -12,17 +12,17 @@ class EventDetailPage extends StatefulWidget {
   final String id;
   final String? img;
 
-  const EventDetailPage(
-      {Key? key,
-      required this.title,
-      required this.description,
-      required this.date,
-      required this.venue,
-      required this.location,
-      required this.tickets,
-      required this.img,
-      required this.id})
-      : super(key: key);
+  const EventDetailPage({
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.date,
+    required this.venue,
+    required this.location,
+    required this.tickets,
+    required this.img,
+    required this.id,
+  }) : super(key: key);
 
   @override
   _EventDetailPageState createState() => _EventDetailPageState();
@@ -30,19 +30,20 @@ class EventDetailPage extends StatefulWidget {
 
 class _EventDetailPageState extends State<EventDetailPage> {
   bool isFavorite = false;
+  bool isBooked = false;
 
   @override
   void initState() {
     super.initState();
-    // Check if the event is already in favorites when the page loads
+    // Check if the event is already in favorites or booked when the page loads
     checkFavoriteStatus();
+    checkBookedStatus();
   }
 
   void _showSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(message),
-      backgroundColor:
-          Colors.green, // Customize the SnackBar's background color
+      backgroundColor: Colors.green,
     ));
   }
 
@@ -63,7 +64,24 @@ class _EventDetailPageState extends State<EventDetailPage> {
     }
   }
 
-  Future<void> favoriteEvent() async {
+  Future<void> checkBookedStatus() async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      String uid = user.uid;
+      String eventId = widget.id;
+      final userBookingsRef = FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('bookings');
+      DocumentSnapshot snapshot = await userBookingsRef.doc(eventId).get();
+      setState(() {
+        isBooked = snapshot.exists;
+      });
+    }
+  }
+
+  Future<void> toggleFavorite() async {
     User? user = FirebaseAuth.instance.currentUser;
 
     if (user != null) {
@@ -91,6 +109,32 @@ class _EventDetailPageState extends State<EventDetailPage> {
     }
   }
 
+  Future<void> toggleBook() async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      String uid = user.uid;
+      String eventId = widget.id;
+      final userBookingsRef = FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('bookings');
+      DocumentSnapshot snapshot = await userBookingsRef.doc(eventId).get();
+
+      if (snapshot.exists) {
+        // Event is already booked, show a message or take appropriate action
+        _showSnackBar('You have already booked this event');
+      } else {
+        // Event is not booked, add it to bookings
+        userBookingsRef.doc(eventId).set({'booked': true});
+        _showSnackBar('Event booked successfully');
+        setState(() {
+          isBooked = true; // Update the booked state
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,7 +147,16 @@ class _EventDetailPageState extends State<EventDetailPage> {
               color: isFavorite ? Colors.red : null,
             ),
             onPressed: () {
-              favoriteEvent();
+              toggleFavorite();
+            },
+          ),
+          IconButton(
+            icon: Icon(
+              isBooked ? Icons.bookmark : Icons.bookmark_border,
+              color: isBooked ? Colors.blue : null,
+            ),
+            onPressed: () {
+              toggleBook();
             },
           ),
         ],
@@ -128,7 +181,9 @@ class _EventDetailPageState extends State<EventDetailPage> {
               alignment: Alignment.topRight,
               child: ElevatedButton(
                 onPressed: () {
+                  // Perform the booking action here
                   // MaterialPageRoute(builder: (context) => const MpesaPayment());
+                  toggleBook();
                 },
                 child: const Text('Book'),
               ),

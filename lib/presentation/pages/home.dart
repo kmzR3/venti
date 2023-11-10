@@ -29,6 +29,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         actions: [
           IconButton(
+            icon: const Icon(Icons.bookmark_outline), // Add bookmark icon
+            onPressed: () {
+              Navigator.pushNamed(
+                  context, '/booked'); // Navigate to booked events page
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.favorite_outline),
             onPressed: () {
               // Add your search functionality here
@@ -39,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.pushNamed(context, '/profile');
               },
-              icon: const Icon(Icons.person))
+              icon: const Icon(Icons.person)),
         ],
       ),
       body: const GetData(),
