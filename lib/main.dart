@@ -4,6 +4,7 @@ import 'package:venti/presentation/pages/booked.dart';
 import 'package:venti/presentation/pages/favorite_events.dart';
 import 'package:venti/presentation/pages/profile_page.dart';
 import 'package:venti/presentation/widgets/widget_tree.dart';
+import 'package:venti/theme/theme.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -22,11 +23,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Venti',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        // theme: ThemeData(
+        //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        //   useMaterial3: true,
+        // ),
         home: const WidgetTree(),
+        theme: lightMode,
+        darkTheme: darkMode,
         // initialRoute: '/',
         routes: {
           // '/': (context) => const MyHomePage(),
