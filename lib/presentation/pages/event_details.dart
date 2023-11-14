@@ -172,8 +172,6 @@ class _EventDetailPageState extends State<EventDetailPage> {
               alignment: Alignment.topRight,
               child: ElevatedButton(
                 onPressed: () {
-                  // Perform the booking action here
-                  // MaterialPageRoute(builder: (context) => const MpesaPayment());
                   toggleBook();
                 },
                 child: const Text('Book'),

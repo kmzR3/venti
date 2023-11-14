@@ -23,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         toolbarTextStyle: const TextStyle(
-          color: Colors.white,
+          // color: Colors.white,
           fontSize: 30,
           fontWeight: FontWeight.bold,
         ),
