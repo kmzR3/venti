@@ -19,7 +19,11 @@ class PageWrapper extends StatelessWidget {
       body: child,
       bottomNavigationBar: BottomNavBar(
         selectedIndex: selectedIndex,
-        onTabChange: onTabChange,
+        onTabChange: (index) {
+          if (index != selectedIndex) {
+            onTabChange(index);
+          }
+        },
       ),
     );
   }

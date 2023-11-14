@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:venti/presentation/widgets/page_wrapper.dart';
 import 'package:venti/services/auth.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -77,55 +78,61 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Venti"),
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            // User email
-            Text(user?.email ?? "user email",
-                style: const TextStyle(fontSize: 20)),
-            const SizedBox(height: 20),
+    return PageWrapper(
+      selectedIndex: 3, // Set the appropriate index for each page
+      onTabChange: (index) {
+        // Handle tab change if needed
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Venti"),
+        ),
+        body: Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              // User email
+              Text(user?.email ?? "user email",
+                  style: const TextStyle(fontSize: 20)),
+              const SizedBox(height: 20),
 
-            // User name input
-            TextField(
-              controller: nameController,
-              decoration: const InputDecoration(labelText: 'Name'),
-            ),
-            const SizedBox(height: 10),
-
-            // User phone number input
-            TextField(
-              controller: phoneController,
-              decoration: const InputDecoration(labelText: 'Phone Number'),
-            ),
-            const SizedBox(height: 20),
-
-            // Update Profile Button
-            ElevatedButton(
-              onPressed: () => updateProfile(context),
-              child: const Text("Update Profile"),
-            ),
-            const SizedBox(height: 20),
-
-            // Sign Out Button
-            ElevatedButton(
-              onPressed: () => signOut(context),
-              child: const Text("Sign Out"),
-            ),
-
-            // Display signed out message
-            if (isSignedOut)
-              const Text(
-                'You have been signed out.',
-                style: TextStyle(color: Colors.red),
+              // User name input
+              TextField(
+                controller: nameController,
+                decoration: const InputDecoration(labelText: 'Name'),
               ),
-          ],
+              const SizedBox(height: 10),
+
+              // User phone number input
+              TextField(
+                controller: phoneController,
+                decoration: const InputDecoration(labelText: 'Phone Number'),
+              ),
+              const SizedBox(height: 20),
+
+              // Update Profile Button
+              ElevatedButton(
+                onPressed: () => updateProfile(context),
+                child: const Text("Update Profile"),
+              ),
+              const SizedBox(height: 20),
+
+              // Sign Out Button
+              ElevatedButton(
+                onPressed: () => signOut(context),
+                child: const Text("Sign Out"),
+              ),
+
+              // Display signed out message
+              if (isSignedOut)
+                const Text(
+                  'You have been signed out.',
+                  style: TextStyle(color: Colors.red),
+                ),
+            ],
+          ),
         ),
       ),
     );
