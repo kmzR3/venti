@@ -41,6 +41,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           actions: [
             IconButton(
+              icon: const Icon(Icons.add),
+              onPressed: () {
+                Navigator.pushNamed(context, '/create');
+              },
+            ),
+            IconButton(
               icon: const Icon(Icons.bookmark_outline),
               onPressed: () {
                 Navigator.pushNamed(context, '/booked');
